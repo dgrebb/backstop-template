@@ -1,0 +1,13 @@
+diff --git a/node_modules/super-simple-web-server/index.js b/node_modules/super-simple-web-server/index.js
+index 1eb8065..a27c9b9 100644
+--- a/node_modules/super-simple-web-server/index.js
++++ b/node_modules/super-simple-web-server/index.js
+@@ -34,7 +34,7 @@ function logger(req, res, next) {
+  * To add middleware set the third arg to a path that resolves to a file exporting a function like so...
+  * module.exports = (app) => { app.use(someCoolThingHere);}
+  */
+-const MIDDLEWARE_PATH = path.resolve(process.argv[3] || false);
++const MIDDLEWARE_PATH = process.argv[3] ? path.resolve(process.argv[3]) : false;
+ if (MIDDLEWARE_PATH) {
+   try {
+       var initMiddleware = require(MIDDLEWARE_PATH);

@@ -4,12 +4,13 @@
   "description": "A template for all projects using [BackstopJS](https://github.com/garris/BackstopJS)",
   "main": "index.js",
   "scripts": {
-    "backstop": "backstop",
-    "dev": "nodemon ./backstop/_utils/scenarios.js",
-    "approve": "backstop approve --config='backstop/backstop.config.js'",
-    "remote": "backstop remote --config='backstop/backstop.config.js'",
+    "backstop": "cd _ci/backstop && backstop",
+    "approve": "cd _ci/backstop && BACKSTOP_REMOTE_HTTP_PORT=3113 backstop approve --config='backstop.config.js'",
+    "init": "cd _ci/backstop && BACKSTOP_REMOTE_HTTP_PORT=3113 backstop init",
+    "remote": "cd _ci/backstop && BACKSTOP_REMOTE_HTTP_PORT=3113 backstop remote --config='backstop.config.js'",
+    "report": "cd _ci/backstop && BACKSTOP_REMOTE_HTTP_PORT=3113 backstop openReport --config='backstop.config.js'",
     "serve": "live-server ./project",
-    "test": "backstop test --config='backstop/backstop.config.js'"
+    "test": "cd _ci/backstop && BACKSTOP_REMOTE_HTTP_PORT=3113 backstop test --config='backstop.config.js'"
   },
   "keywords": [],
   "author": "",
