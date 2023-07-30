@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "backstop": "backstop",
+    "dev": "nodemon ./backstop/_utils/scenarios.js",
     "approve": "backstop approve --config='backstop/backstop.config.js'",
     "remote": "backstop remote --config='backstop/backstop.config.js'",
     "serve": "live-server ./project",
@@ -17,6 +18,7 @@
     "backstopjs": "^6.2.2"
   },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "nodemon": "^3.0.1"
   }
 }

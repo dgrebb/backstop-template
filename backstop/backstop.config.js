@@ -1,42 +1,42 @@
-const { URL } = require("./vars");
+const { homepage_default, about_default } = require("./scenarios");
 
 module.exports = {
   id: "backstop-template",
   viewports: [
     {
-      label: "phone",
+      label: "xs",
       width: 320,
       height: 480,
     },
     {
-      label: "tablet",
+      label: "sm",
+      width: 375,
+      height: 667,
+    },
+    {
+      label: "md",
+      width: 768,
+      height: 1024,
+    },
+    {
+      label: "lg",
       width: 1024,
       height: 768,
+    },
+    {
+      label: "xl",
+      width: 1280,
+      height: 960,
+    },
+    {
+      label: "2xl",
+      width: 1536,
+      height: 1280,
     },
   ],
   onBeforeScript: "puppet/onBefore.js",
   onReadyScript: "puppet/onReady.js",
-  scenarios: [
-    {
-      label: "BackstopJS Homepage",
-      // cookiePath: "backstop/backstop_data/engine_scripts/cookies.json",
-      url: URL,
-      referenceUrl: "",
-      readyEvent: "",
-      readySelector: "",
-      delay: 0,
-      hideSelectors: [],
-      removeSelectors: [],
-      hoverSelector: "",
-      clickSelector: "",
-      postInteractionWait: 0,
-      selectors: [],
-      selectorExpansion: true,
-      expect: 0,
-      misMatchThreshold: 0.1,
-      requireSameDimensions: true,
-    },
-  ],
+  scenarios: [homepage_default, about_default],
   paths: {
     bitmaps_reference: "backstop/backstop_data/bitmaps_reference",
     bitmaps_test: "backstop/backstop_data/bitmaps_test",
@@ -48,6 +48,7 @@ module.exports = {
   engine: "puppeteer",
   engineOptions: {
     args: ["--no-sandbox"],
+    headless: "new",
   },
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,
